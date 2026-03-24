@@ -23,9 +23,9 @@ function App() {
           storageUsage: Number(storage),
         },
         {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+          headers: token
+            ? { Authorization: `Bearer ${token}` }
+            : {},
         }
       );
 
