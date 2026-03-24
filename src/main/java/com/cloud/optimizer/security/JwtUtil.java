@@ -11,7 +11,7 @@ import java.util.Date;
 @Component
 public class JwtUtil {
 
-    @Value("${jwt.secret}")
+    @Value("${app.auth.signing-secret}")
     private String secret;
 
     private Key getSigningKey() {
