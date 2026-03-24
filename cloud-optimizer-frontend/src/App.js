@@ -31,8 +31,10 @@ function App() {
 
       setResult(res.data);
     } catch (err) {
-      alert("Error calling API");
-    }
+        console.log(err);
+        console.log(err.response);
+        alert(err.response?.status + " - " + err.response?.data || err.message);
+      }
   };
 
   return (
