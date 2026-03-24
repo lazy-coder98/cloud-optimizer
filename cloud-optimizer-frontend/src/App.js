@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./App.css";
 
 function App() {
   const [cpu, setCpu] = useState("");
@@ -27,38 +28,40 @@ function App() {
 
       setResult(res.data);
     } catch (err) {
-      console.error(err);
       alert("Error calling API");
     }
   };
 
   return (
-    <div style={{ padding: "30px" }}>
-      <h1>Cloud Optimizer 🚀</h1>
+    <div className="container">
+      <h1>☁️ Cloud Optimizer</h1>
 
-      <input
-        placeholder="CPU %"
-        value={cpu}
-        onChange={(e) => setCpu(e.target.value)}
-      /><br /><br />
+      <div className="card">
+        <input
+          type="number"
+          placeholder="CPU Usage (%)"
+          value={cpu}
+          onChange={(e) => setCpu(e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder="Memory Usage (%)"
+          value={memory}
+          onChange={(e) => setMemory(e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder="Storage Usage (%)"
+          value={storage}
+          onChange={(e) => setStorage(e.target.value)}
+        />
 
-      <input
-        placeholder="Memory %"
-        value={memory}
-        onChange={(e) => setMemory(e.target.value)}
-      /><br /><br />
-
-      <input
-        placeholder="Storage %"
-        value={storage}
-        onChange={(e) => setStorage(e.target.value)}
-      /><br /><br />
-
-      <button onClick={handleSubmit}>Optimize</button>
+        <button onClick={handleSubmit}>Optimize 🚀</button>
+      </div>
 
       {result && (
-        <div style={{ marginTop: "20px" }}>
-          <h3>Result:</h3>
+        <div className="result-card">
+          <h2>Result</h2>
           <p><b>Recommendation:</b> {result.recommendation}</p>
           <p><b>Severity:</b> {result.severity}</p>
           <p><b>Cost Saving:</b> {result.estimatedCostSaving}</p>
