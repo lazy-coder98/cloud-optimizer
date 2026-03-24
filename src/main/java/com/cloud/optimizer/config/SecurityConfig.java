@@ -38,9 +38,14 @@ public class SecurityConfig {
                                 "/webjars/**",
                                 "/configuration/**",
 
-                                "/",            // ✅ ADD
-                                "/index.html",  // ✅ ADD
-                                "/error"        // ✅ ADD
+                                "/",
+                                "/index.html",
+                                "/static/**",
+                                "/manifest.json",
+                                "/favicon.ico",
+                                "/robots.txt",
+                                "/asset-manifest.json",
+                                "/error"
                         ).permitAll()
 
                         .anyRequest().authenticated()

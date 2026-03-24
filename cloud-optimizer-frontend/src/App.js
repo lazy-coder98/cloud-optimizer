@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./App.css";
 
+/** Same origin when UI is served by Spring Boot; set REACT_APP_API_URL for a separate frontend host. */
+const API_BASE = (process.env.REACT_APP_API_URL || "").replace(/\/$/, "");
+
 function App() {
   const [cpu, setCpu] = useState("");
   const [memory, setMemory] = useState("");
@@ -13,7 +16,7 @@ function App() {
       const token = localStorage.getItem("token");
 
       const res = await axios.post(
-        "https://cloud-optimizer-production-a35d.up.railway.app/api/optimize",
+        `${API_BASE}/api/optimize`,
         {
           cpuUsage: Number(cpu),
           memoryUsage: Number(memory),

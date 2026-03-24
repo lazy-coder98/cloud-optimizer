@@ -1,11 +1,11 @@
 package com.cloud.optimizer.controller;
+
 import jakarta.validation.Valid;
 
 import com.cloud.optimizer.model.OptimizationRequest;
 import com.cloud.optimizer.model.OptimizationSuggestion;
 import com.cloud.optimizer.model.UsageRecord;
 import com.cloud.optimizer.service.OptimizationService;
-import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.beans.factory.annotation.Autowired;
